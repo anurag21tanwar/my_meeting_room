@@ -4,7 +4,6 @@ default: &default
   timeout: 5000
   encoding: utf8
   reconnect: true
-  host: localhost
 
 development:
   <<: *default
