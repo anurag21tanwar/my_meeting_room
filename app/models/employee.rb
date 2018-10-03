@@ -5,7 +5,6 @@ class Employee < ApplicationRecord
   has_and_belongs_to_many :meetings
 
   validates :email, uniqueness: true, presence: true
-  validates :emp_id, uniqueness: true, presence: true
   validates :name, presence: true
 
   def self.get_participants(participants)

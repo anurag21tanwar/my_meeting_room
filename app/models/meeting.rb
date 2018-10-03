@@ -8,10 +8,11 @@ class Meeting < ApplicationRecord
   validates :booked_by, presence: true
   validate :not_overlap
 
-  scope :overlaps, lambda do |start_time, end_time, conference_room_id|
-    where('((start_time <= ?) AND (end_time >= ? AND conference_room_id = ?))',
-          start_time, end_time, conference_room_id)
-  end
+  scope :overlaps,
+        ->(start_time, end_time, conference_room_id) do
+          where('((start_time <= ?) AND (end_time >= ? AND conference_room_id = ?))',
+                start_time, end_time, conference_room_id)
+        end
 
   def not_overlap
     errors.add(:message, 'Meeting Schedule Coincides') if
