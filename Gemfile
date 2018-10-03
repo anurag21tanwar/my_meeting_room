@@ -38,7 +38,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'pg'
 
 group :development, :test do
-  gem 'rails-pry'
+  gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'rubocop', require: false
 end
 
 group :development do

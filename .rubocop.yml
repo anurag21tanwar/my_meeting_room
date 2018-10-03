@@ -1,0 +1,13 @@
+AllCops:
+  DisplayCopNames: true
+  Include:
+      - '**/*.rb'
+  Exclude:
+      - 'config/**/*'
+      - 'vendor/**/*'
+      - 'db/**/*'
+      - 'bin/**/*'  
+Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
