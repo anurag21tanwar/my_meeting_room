@@ -10,10 +10,8 @@ class Employee < ApplicationRecord
   def self.get_participants(participants)
     return [] if participants.blank?
     @teams = Team.get_p(participants)
-    @participants = @teams.map do |x|
-      x.employees.map(&:id)
-    end
-    @participants << Employee.get_p(participants).map(&:id)
+    @participants = @teams.map(&:employees)
+    @participants << Employee.get_p(participants)
     @participants.flatten!.uniq
   rescue
     return []

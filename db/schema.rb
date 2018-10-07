@@ -44,10 +44,11 @@ ActiveRecord::Schema.define(version: 2018_10_03_153236) do
 
   create_table "meetings", force: :cascade do |t|
     t.bigint "conference_room_id"
-    t.integer "booked_by"
+    t.integer "booked_by", null: false
     t.datetime "start_time", null: false
     t.datetime "end_time", null: false
-    t.string "agenda"
+    t.string "title", null: false
+    t.text "agenda"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["conference_room_id"], name: "index_meetings_on_conference_room_id"

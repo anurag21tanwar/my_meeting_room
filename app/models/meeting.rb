@@ -4,7 +4,7 @@ class Meeting < ApplicationRecord
 
   validates :start_time, presence: true
   validates :end_time, presence: true
-  validates :conference_room, presence: true
+  validates :conference_room_id, presence: true
   validates :booked_by, presence: true
   validate :not_overlap
 
