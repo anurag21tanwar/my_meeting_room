@@ -1,7 +1,7 @@
 <%= form_with(model: meeting, local: true) do |form| %>
   <% if meeting.errors.any? %>
     <% meeting.errors.full_messages.each do |message| %>
-      <div class="alert alert-success">
+      <div class="alert alert-danger">
         <%= message %>
       </div>
     <% end %>
@@ -45,6 +45,6 @@
     <%= form.text_area :agenda, class: 'form-control' %>
   </div>
 
-  <button type="submit" class="btn btn-primary">Create</button>
+  <button type="submit" class="btn btn-primary"><%= (update ? update : 'Create') %></button>
   <%= link_to 'Back', :back, class: "btn btn-primary" %>
 <% end %>
