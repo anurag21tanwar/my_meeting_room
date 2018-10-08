@@ -55,6 +55,7 @@ class MeetingsController < ApplicationController
 
   def destroy
     @meeting&.destroy
+    flash.notice = 'Meeting successfully deleted'
     redirect_to :root
   end
 
