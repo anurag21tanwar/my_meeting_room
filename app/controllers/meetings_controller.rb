@@ -2,7 +2,7 @@ class MeetingsController < ApplicationController
   before_action :find_meeting, only: [:show, :edit, :update, :destroy]
 
   def index
-    @meetings = Meeting.all
+    @meetings = current_employee.meetings
     @rooms = true if params[:rooms]
   end
 
@@ -16,12 +16,12 @@ class MeetingsController < ApplicationController
       meeting_params.merge!(
         start_time: convert_datetime(Date.parse(params[:meeting][:date]), Time.parse(params[:meeting][:start_time])),
         end_time: convert_datetime(Date.parse(params[:meeting][:date]), Time.parse(params[:meeting][:end_time])),
-        booked_by: Employee.first.id
+        booked_by: current_employee.id
       )
     )
     if @participants.present? && @meeting.save
       @meeting.employees << @participants
-      flash.now.notice = 'Meeting successfully created'
+      flash.notice = 'Meeting successfully created'
       redirect_to :root
     else
       render :new
@@ -38,12 +38,12 @@ class MeetingsController < ApplicationController
         meeting_params.merge!(
           start_time: convert_datetime(Date.parse(params[:meeting][:date]), Time.parse(params[:meeting][:start_time])),
           end_time: convert_datetime(Date.parse(params[:meeting][:date]), Time.parse(params[:meeting][:end_time])),
-          booked_by: Employee.first.id
+          booked_by: current_employee.id
         )
       )
       @meeting.employees.delete(@meeting.employees)
       @meeting.employees << @participants
-      flash.now.notice = 'Meeting successfully updated'
+      flash.notice = 'Meeting successfully updated'
       redirect_to :root
     else
       render :new

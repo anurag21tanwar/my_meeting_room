@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2018_10_03_153236) do
   create_table "employees", primary_key: "emp_id", force: :cascade do |t|
     t.string "name"
     t.string "email", null: false
+    t.string "encrypted_password", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

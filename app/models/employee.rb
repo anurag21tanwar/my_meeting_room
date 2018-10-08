@@ -1,4 +1,6 @@
 class Employee < ApplicationRecord
+  devise :database_authenticatable, :validatable
+
   self.primary_key = :emp_id
 
   has_and_belongs_to_many :teams

@@ -4,6 +4,7 @@ class CreateEmployees < ActiveRecord::Migration[5.2]
       t.primary_key :emp_id
       t.string :name
       t.string :email, null: false
+      t.string :encrypted_password, null: false
 
       t.timestamps
     end

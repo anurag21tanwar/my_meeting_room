@@ -13,6 +13,7 @@ gem 'sprockets-rails'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data'
 gem 'uglifier', '>= 1.3.0'
+gem 'devise'
 
 group :development, :test do
   gem 'pry-rails'
