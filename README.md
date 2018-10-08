@@ -44,5 +44,7 @@ test:
 2) rspec
 3) to see test coverage, go to open coverage/index.html
 
-TODO:
+todo:
 1) make Dockerfile
+
+deployed on heroku: https://gentle-depths-77039.herokuapp.com
