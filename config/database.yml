@@ -14,3 +14,7 @@ development:
 test:
   <<: *default
   database: my_meeting_room_test
+
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>

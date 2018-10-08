@@ -10,7 +10,8 @@ class Meeting < ApplicationRecord
 
   scope :overlaps,
         ->(start_time, end_time, conference_room_id) do
-          where('((start_time <= ?) AND (end_time >= ? AND conference_room_id = ?))',
+          where('((start_time <= ?)
+                 AND (end_time >= ? AND conference_room_id = ?))',
                 start_time, end_time, conference_room_id)
         end
 

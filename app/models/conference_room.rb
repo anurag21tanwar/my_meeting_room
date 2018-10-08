@@ -12,7 +12,8 @@ class ConferenceRoom < ApplicationRecord
   scope :available_rooms,
         ->(start_time, end_time) do
           joins(:meetings)
-            .where('(start_time >= ? AND end_time >= ?) OR (start_time <= ? AND end_time <= ?)',
+            .where('(start_time >= ? AND end_time >= ?)
+                    OR (start_time <= ? AND end_time <= ?)',
                    start_time, end_time)
         end
 
