@@ -11,11 +11,15 @@ class MeetingsController < ApplicationController
   end
 
   def create
-    @participants = Employee.get_participants(params[:meeting][:participants].split(',').map(&:strip))
+    @participants = Employee.get_participants(
+      params[:meeting][:participants].split(',').map(&:strip)
+    )
     @meeting = Meeting.new(
       meeting_params.merge!(
-        start_time: convert_datetime(Date.parse(params[:meeting][:date]), Time.parse(params[:meeting][:start_time])),
-        end_time: convert_datetime(Date.parse(params[:meeting][:date]), Time.parse(params[:meeting][:end_time])),
+        start_time: convert_datetime(Date.parse(params[:meeting][:date]),
+                                     Time.parse(params[:meeting][:start_time])),
+        end_time: convert_datetime(Date.parse(params[:meeting][:date]),
+                                   Time.parse(params[:meeting][:end_time])),
         booked_by: current_employee.id
       )
     )
@@ -32,12 +36,16 @@ class MeetingsController < ApplicationController
   end
 
   def update
-    @participants = Employee.get_participants(params[:meeting][:participants].split(',').map(&:strip))
+    @participants = Employee.get_participants(
+      params[:meeting][:participants].split(',').map(&:strip)
+    )
     if @participants.present?
       @meeting.update(
         meeting_params.merge!(
-          start_time: convert_datetime(Date.parse(params[:meeting][:date]), Time.parse(params[:meeting][:start_time])),
-          end_time: convert_datetime(Date.parse(params[:meeting][:date]), Time.parse(params[:meeting][:end_time])),
+          start_time: convert_datetime(Date.parse(params[:meeting][:date]),
+                                       Time.parse(params[:meeting][:start_time])),
+          end_time: convert_datetime(Date.parse(params[:meeting][:date]),
+                                     Time.parse(params[:meeting][:end_time])),
           booked_by: current_employee.id
         )
       )

@@ -3,6 +3,7 @@ ruby '2.5.1'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.1.3'
+gem 'devise'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'pg'
@@ -13,12 +14,14 @@ gem 'sprockets-rails'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data'
 gem 'uglifier', '>= 1.3.0'
-gem 'devise'
 
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'rubocop', require: false
+  gem 'simplecov', require: false
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
