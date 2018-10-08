@@ -1,27 +1,27 @@
 <div class="form-group">
   <div class="row">
     <div class="custom-control col-sm-2"><b>Title:</b></div>
-    <div class="custom-control"><%= @meeting.title %></div>
+    <div class="custom-control col-sm-10"><%= @meeting.title %></div>
   </div>
   <div class="row">
     <div class="custom-control col-sm-2"><b>Participants:</b></div>
-    <div class="custom-control"><%= @meeting.employees.map(&:email).join(', ') %></div>
+    <div class="custom-control col-sm-10"><%= @meeting.employees.map(&:email).join(', ') %></div>
   </div>
   <div class="row">
     <div class="custom-control col-sm-2"><b>Location:</b></div>
-    <div class="custom-control"><%= @meeting.conference_room.name %></div>
+    <div class="custom-control col-sm-10"><%= @meeting.conference_room.name %></div>
   </div>
   <div class="row">
     <div class="custom-control col-sm-2"><b>Date:</b></div>
-    <div class="custom-control"><%= @meeting.start_time.strftime('%m-%d-%y') %></div>
+    <div class="custom-control col-sm-10"><%= @meeting.start_time.strftime('%m-%d-%y') %></div>
   </div>
   <div class="row">
     <div class="custom-control col-sm-2"><b>Time:</b></div>
-    <div class="custom-control"><%= "#{@meeting.start_time.strftime('%H:%M-%p')} to #{@meeting.end_time.strftime('%H:%M-%p')}" %></div>
+    <div class="custom-control col-sm-10"><%= "#{@meeting.start_time.strftime('%H:%M-%p')} to #{@meeting.end_time.strftime('%H:%M-%p')}" %></div>
   </div>
   <div class="row">
     <div class="custom-control col-sm-2"><b>Agenda:</b></div>
-    <div class="custom-control"><%= @meeting.agenda %></div>
+    <div class="custom-control col-sm-10"><%= @meeting.agenda %></div>
   </div>
   <br>
   <%= link_to 'Modify', edit_meeting_path(@meeting), class: "btn btn-primary" %>

@@ -37,7 +37,14 @@ bootstrap:
 7) rails s
 
 open browser http://localhost:3000
-login with any pre-seeded employees
+
+app flow:
+1) login with any pre-seeded employees
+2) Home tab will list current_employee meetings
+3) click the meeting to edit or delete
+4) Rooms tab will list rooms availability
+5) use Schedule tab to create new meetings
+6) click sign out to end the session
 
 test:
 1) RAILS_ENV=test rake db:setup db:seed
